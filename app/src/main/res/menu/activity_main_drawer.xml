@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/news_nav"
+            android:icon="@drawable/ic_art_track_black_24dp"
+            android:title="News" />
+    </group>
+
+   <item android:title="Games">
+       <menu>
+       <item
+            android:id="@+id/league_of_legends"
+            android:icon="@drawable/ic_videogame_asset_black_24dp"
+            android:title="League of Legends" />
+
+       <item
+            android:id="@+id/counter_strike"
+            android:icon="@drawable/ic_videogame_asset_black_24dp"
+            android:title="Counter Strike" />
+        <item
+            android:id="@+id/dota_2"
+            android:icon="@drawable/ic_videogame_asset_black_24dp"
+            android:title="Dota 2" />
+       </menu>
+</item>
+
+    <item android:title="Prefferences">
+        <menu>
+            <item
+                android:id="@+id/favorites_nav"
+                android:icon="@drawable/ic_favorite_black_24dp"
+                android:title="Favorites" />
+            <item
+                android:id="@+id/nav_settings"
+                android:icon="@drawable/ic_settings_black_24dp"
+                android:title="Settings" />
+        </menu>
+    </item>
+
+</menu>
