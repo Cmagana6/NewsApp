@@ -24,6 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText password;
     private Button signin;
     private UserInterface service;
+    public static String Tokenglobal;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<LoginAuth> call, Response<LoginAuth> response) {
                         if(response.body().getToken() !=null){
+                            Tokenglobal = response.body().getToken().toString();
                             Intent intent;
                             intent=new Intent(LoginActivity.this,MainActivity.class);
                             startActivity(intent);

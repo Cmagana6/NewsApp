@@ -7,10 +7,12 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.m00061016.gamenews.Objects.New_class;
 import com.m00061016.gamenews.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -38,12 +40,15 @@ public class RecyclerViewAdapterNew extends RecyclerView.Adapter<RecyclerViewAda
         holder.news_title.setText(NewsListData.get(position).getTitle());
         holder.news_desc.setText(NewsListData.get(position).getBody());
 
+        Picasso.with(context).load(NewsListData.get(position).getCoverImage()).into(holder.new_image);
+
         final ViewGroup.LayoutParams lp = holder.itemView.getLayoutParams();
         if(position == 0 || position%3==0){
             StaggeredGridLayoutManager.LayoutParams sglp = (StaggeredGridLayoutManager.LayoutParams) lp;
             sglp.setFullSpan(true);
             holder.itemView.setLayoutParams(sglp);
         }
+
     }
 
     @Override
@@ -54,9 +59,10 @@ public class RecyclerViewAdapterNew extends RecyclerView.Adapter<RecyclerViewAda
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
         private TextView news_title, news_desc;
-
+        private ImageView new_image;
         public MyViewHolder(View itemView) {
             super(itemView);
+            new_image = (ImageView) itemView.findViewById(R.id.item_new_image);
              news_title = (TextView) itemView.findViewById(R.id.item_new_title);
             news_desc = (TextView) itemView.findViewById(R.id.item_new_desc);
 

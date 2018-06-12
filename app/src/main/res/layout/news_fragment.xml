@@ -5,6 +5,7 @@
     android:id="@+id/fragmentnewsid"
     android:clickable="true"
     >
+<!-- Vista para las noticias en la pantalla principal !-->
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"

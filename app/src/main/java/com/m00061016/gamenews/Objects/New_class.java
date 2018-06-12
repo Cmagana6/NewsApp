@@ -1,5 +1,7 @@
 package com.m00061016.gamenews.Objects;
 
+import java.util.Date;
+
 public class New_class {
 
     private String _id;
