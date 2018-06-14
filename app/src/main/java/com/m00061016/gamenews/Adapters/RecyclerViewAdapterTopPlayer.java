@@ -6,10 +6,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.m00061016.gamenews.Objects.Player;
 import com.m00061016.gamenews.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -36,9 +38,13 @@ public class RecyclerViewAdapterTopPlayer extends RecyclerView.Adapter<RecyclerV
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.playerdesc.setText(playerList.get(position).getBiografia());
         holder.playername.setText(playerList.get(position).getName());
 
+        if(playerList.get(position).getAvatar().equals("Sin avatar")){
+                holder.playerimage.setImageResource(R.drawable.ic_account_circle_black_24dp);
+        }else {
+            Picasso.with(context).load(playerList.get(position).getAvatar()).into(holder.playerimage);
+        }
     }
 
     @Override
@@ -47,14 +53,13 @@ public class RecyclerViewAdapterTopPlayer extends RecyclerView.Adapter<RecyclerV
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
-        private TextView playername, playerdesc;
-
+        private TextView playername;
+        private ImageView playerimage;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             playername = (TextView) itemView.findViewById(R.id.item_game_topplayer_name);
-            playerdesc = (TextView) itemView.findViewById(R.id.item_game_toplayer_desc);
-
+            playerimage = (ImageView) itemView.findViewById(R.id.top_player_image);
         }
     }
 }

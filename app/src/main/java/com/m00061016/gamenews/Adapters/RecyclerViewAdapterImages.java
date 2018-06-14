@@ -10,6 +10,7 @@ import android.widget.ImageView;
 
 import com.m00061016.gamenews.Objects.Image_class;
 import com.m00061016.gamenews.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class RecyclerViewAdapterImages extends RecyclerView.Adapter<RecyclerView
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.image.setImageResource(R.drawable.gameicon2);
+        Picasso.with(context).load(imageList.get(position).GetUrl()).into(holder.image);
 
     }
 

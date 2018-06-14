@@ -21,13 +21,16 @@ import com.m00061016.gamenews.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.m00061016.gamenews.Fragments.general_fragment.generallist;
+import static com.m00061016.gamenews.Fragments.general_fragment.imglist;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class images_Fragment extends Fragment {
 
-    private List<Image_class> imglist;
+    private List<Image_class> imgList;
     private RecyclerView imgrc;
     View view;
 
@@ -52,15 +55,6 @@ public class images_Fragment extends Fragment {
         super.onCreate(savedInstanceState);
         imglist = new ArrayList<>();
 
-        imglist.add(new Image_class(String.valueOf(R.drawable.gameicon2)));
-        imglist.add(new Image_class(String.valueOf(R.drawable.gameicon2)));
-        imglist.add(new Image_class(String.valueOf(R.drawable.gameicon2)));
-        imglist.add(new Image_class(String.valueOf(R.drawable.gameicon2)));
-        imglist.add(new Image_class(String.valueOf(R.drawable.gameicon2)));
-        imglist.add(new Image_class(String.valueOf(R.drawable.gameicon2)));
-        imglist.add(new Image_class(String.valueOf(R.drawable.gameicon2)));
-        imglist.add(new Image_class(String.valueOf(R.drawable.gameicon2)));
-        imglist.add(new Image_class(String.valueOf(R.drawable.gameicon2)));
     }
 
 }

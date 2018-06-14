@@ -38,16 +38,9 @@ public class RecyclerViewAdapterNew extends RecyclerView.Adapter<RecyclerViewAda
     @Override
     public void onBindViewHolder(@NonNull RecyclerViewAdapterNew.MyViewHolder holder, int position) {
         holder.news_title.setText(NewsListData.get(position).getTitle());
-        holder.news_desc.setText(NewsListData.get(position).getBody());
+        holder.news_game.setText(NewsListData.get(position).getGame());
 
         Picasso.with(context).load(NewsListData.get(position).getCoverImage()).into(holder.new_image);
-
-        final ViewGroup.LayoutParams lp = holder.itemView.getLayoutParams();
-        if(position == 0 || position%3==0){
-            StaggeredGridLayoutManager.LayoutParams sglp = (StaggeredGridLayoutManager.LayoutParams) lp;
-            sglp.setFullSpan(true);
-            holder.itemView.setLayoutParams(sglp);
-        }
 
     }
 
@@ -58,13 +51,13 @@ public class RecyclerViewAdapterNew extends RecyclerView.Adapter<RecyclerViewAda
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        private TextView news_title, news_desc;
+        private TextView news_title, news_game;
         private ImageView new_image;
         public MyViewHolder(View itemView) {
             super(itemView);
             new_image = (ImageView) itemView.findViewById(R.id.item_new_image);
              news_title = (TextView) itemView.findViewById(R.id.item_new_title);
-            news_desc = (TextView) itemView.findViewById(R.id.item_new_desc);
+            news_game = (TextView) itemView.findViewById(R.id.item_new_desc);
 
         }
 

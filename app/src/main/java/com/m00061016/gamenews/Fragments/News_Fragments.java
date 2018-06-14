@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import com.m00061016.gamenews.Adapters.RecyclerViewAdapterNew;
 import com.m00061016.gamenews.Helpers.RetrofitService;
 import com.m00061016.gamenews.Interfaces.UserInterface;
+import com.m00061016.gamenews.Objects.Image_class;
 import com.m00061016.gamenews.Objects.New_class;
 import com.m00061016.gamenews.R;
 
@@ -36,7 +38,7 @@ public class News_Fragments extends Fragment {
     private Retrofit retrofit;
     private Call<List<New_class>> call;
     private List<New_class> auxiliar = null;
-    private List<New_class> listToSend;
+    public static List<New_class> listToSend;
     private String title, body, game, coverImage, desc, created_date;
     View view;
 
@@ -66,7 +68,6 @@ public class News_Fragments extends Fragment {
                     .baseUrl(baseUrl)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
-
         }
 
         helper = RetrofitService.getRetrofitInstance().create(UserInterface.class);
@@ -114,7 +115,21 @@ public class News_Fragments extends Fragment {
 
                 newsRecyclerView = (RecyclerView) view.findViewById(R.id.rc_news);
                 RecyclerViewAdapterNew recyclerViewAdapterNew = new RecyclerViewAdapterNew(getContext(), listToSend);
-                newsRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL));
+
+                GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),2);
+                gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+                    @Override
+                    public int getSpanSize(int position) {
+                        if(position%3==0 ){
+                            return 2;
+                        }
+                        else{
+                            return 1;
+                        }
+                    }
+                });
+
+                newsRecyclerView.setLayoutManager(gridLayoutManager);
                 newsRecyclerView.setAdapter(recyclerViewAdapterNew);
 
             }

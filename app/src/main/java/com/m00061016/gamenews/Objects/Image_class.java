@@ -12,7 +12,7 @@ public class Image_class {
         return this.url;
     }
 
-    public void Seturl(String url) {
+    public void SetUrl(String url) {
         this.url = url;
     }
 

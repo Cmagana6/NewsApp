@@ -19,6 +19,7 @@ import com.m00061016.gamenews.R;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    public static boolean flagoverwatch=false, flaglol=false,flagcsgo = false;
     private Fragment actual_fragment;
 
     @Override
@@ -74,12 +75,19 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.league_of_legends) {
             changeFragment(new Game_Info_Fragment());
-
+            flaglol=true;
+            flagcsgo=false;
+            flagoverwatch=false;
         } else if (id == R.id.counter_strike) {
             changeFragment(new Game_Info_Fragment());
-
-        } else if (id == R.id.dota_2) {
+            flaglol=false;
+            flagcsgo=true;
+            flagoverwatch=false;
+        } else if (id == R.id.overwatch) {
             changeFragment(new Game_Info_Fragment());
+            flaglol=false;
+            flagcsgo=false;
+            flagoverwatch=true;
 
         } else if (id == R.id.favorites_nav) {
             changeFragment(new Favorites_Fragment());
@@ -97,7 +105,12 @@ public class MainActivity extends AppCompatActivity
         if(actual_fragment == null || !fragment.getClass().getName().equals(actual_fragment.getClass().getName())){
             getSupportFragmentManager().beginTransaction().replace(R.id.content_fr,fragment).commit();
             actual_fragment= fragment;
+        }else if(fragment.getClass().getName().equals(actual_fragment.getClass().getName())){
+            getSupportFragmentManager().beginTransaction().remove(fragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_fr,fragment).commit();
+            actual_fragment= fragment;
         }
+
     }
 
 }

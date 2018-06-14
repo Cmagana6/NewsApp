@@ -22,9 +22,9 @@
             android:icon="@drawable/ic_videogame_asset_black_24dp"
             android:title="Counter Strike" />
         <item
-            android:id="@+id/dota_2"
+            android:id="@+id/overwatch"
             android:icon="@drawable/ic_videogame_asset_black_24dp"
-            android:title="Dota 2" />
+            android:title="Overwatch" />
        </menu>
 </item>
 
