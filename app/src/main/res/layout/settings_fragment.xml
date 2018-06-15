@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#263238"
     >
 
     <ImageView
@@ -19,9 +20,11 @@
         android:layout_height="wrap_content"
         android:hint="Change Your Username here"
         android:layout_gravity="center_horizontal"
+        android:textColorHint="#FFFFFF"
         />
 
     <EditText
+        android:textColorHint="#FFFFFF"
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,9 +36,10 @@
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:text="Change"
         android:layout_gravity="center_horizontal"
+        android:background="#000000"
         />
 
     <Button
@@ -43,9 +47,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         android:text="Sign out"
         android:id="@+id/sign_out_button"
+        android:background="#000000"
         />
 
 </LinearLayout>

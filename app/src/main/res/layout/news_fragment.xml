@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:id="@+id/fragmentnewsid"
     android:clickable="true"
+    android:background="#263238"
     >
 <!-- Vista para las noticias en la pantalla principal !-->
 
@@ -11,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/rc_news"
+        android:background="#263238"
         >
 
     </android.support.v7.widget.RecyclerView>

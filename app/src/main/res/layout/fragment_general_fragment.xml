@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.general_fragment">
+    tools:context=".Fragments.general_fragment"
+    android:background="#263238"
+    >
 
     <!-- vista para las noticias en la seccion de juego !-->
 
@@ -11,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/rc_game_general"
+        android:background="#263238"
         >
 
     </android.support.v7.widget.RecyclerView>

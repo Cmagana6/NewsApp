@@ -79,7 +79,7 @@ public class News_Fragments extends Fragment {
             public void onResponse(Call<List<New_class>> call, Response<List<New_class>> response) {
                 auxiliar = response.body();
                 listToSend = new ArrayList<>();
-
+            if(listToSend.size()==0) {
                 for (int i = 0; i < auxiliar.size(); i++) {
                     if (auxiliar.get(i).getTitle() == null) title = "noticia sin titulo";
                     else {
@@ -107,10 +107,10 @@ public class News_Fragments extends Fragment {
                         created_date = auxiliar.get(i).getCreated_date();
                     }
 
-            listToSend.add(new New_class(auxiliar.get(i).get_id(), title, body, game, coverImage, desc, created_date, auxiliar.get(i).get__v()));
+                    listToSend.add(new New_class(auxiliar.get(i).get_id(), title, body, game, coverImage, desc, created_date, auxiliar.get(i).get__v()));
 
                 }
-
+            }
                 listnews = listToSend;
 
                 newsRecyclerView = (RecyclerView) view.findViewById(R.id.rc_news);

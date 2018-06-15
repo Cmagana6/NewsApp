@@ -21,8 +21,8 @@ import com.m00061016.gamenews.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.m00061016.gamenews.Fragments.general_fragment.gameimageslist;
 import static com.m00061016.gamenews.Fragments.general_fragment.generallist;
-import static com.m00061016.gamenews.Fragments.general_fragment.imglist;
 
 
 /**
@@ -44,7 +44,7 @@ public class images_Fragment extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.news_fragment, container, false);
         imgrc = (RecyclerView) view.findViewById(R.id.rc_news);
-        RecyclerViewAdapterImages recyclerViewAdapterImages = new RecyclerViewAdapterImages(getContext(), imglist);
+        RecyclerViewAdapterImages recyclerViewAdapterImages = new RecyclerViewAdapterImages(getContext(), gameimageslist);
         imgrc.setLayoutManager(new GridLayoutManager(getContext(),3));
         imgrc.setAdapter(recyclerViewAdapterImages);
         return view;
@@ -53,7 +53,7 @@ public class images_Fragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        imglist = new ArrayList<>();
+        imgList = new ArrayList<>();
 
     }
 

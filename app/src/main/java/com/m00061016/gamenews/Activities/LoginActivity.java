@@ -1,5 +1,6 @@
 package com.m00061016.gamenews.Activities;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -44,7 +45,20 @@ public class LoginActivity extends AppCompatActivity {
                 authenticate.enqueue(new Callback<LoginAuth>() {
                     @Override
                     public void onResponse(Call<LoginAuth> call, Response<LoginAuth> response) {
-                        if(response.body().getToken() !=null){
+
+                        if(response.code()== 401){
+                            final Dialog warning = new Dialog(getApplicationContext());
+                            warning.setContentView(R.layout.warning_dialog);
+                            warning.show();
+
+                            warning.findViewById(R.id.btn_warning_dialog).setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    warning.dismiss();
+                                }
+                            });
+
+                        }else if(response.body().getToken() !=null && response.code()!=401){
                             Tokenglobal = response.body().getToken().toString();
                             Intent intent;
                             intent=new Intent(LoginActivity.this,MainActivity.class);

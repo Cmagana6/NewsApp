@@ -36,7 +36,7 @@ public class general_fragment extends Fragment {
 
     private RecyclerView rcgeneral;
     public static List<New_class> generallist;
-    public static List<Image_class> imglist;
+    public static List<Image_class> gameimageslist;
     private UserInterface helper;
     private String baseUrl;
     private Retrofit retrofit;
@@ -69,6 +69,7 @@ public class general_fragment extends Fragment {
     public void loadNewsGeneral( View v) {
         auxiliar = listnews;
         generallist = new ArrayList<>();
+        gameimageslist = new ArrayList<>();
         if(flagcsgo){
             juego="csgo";
         }else if(flaglol){
@@ -86,6 +87,7 @@ public class general_fragment extends Fragment {
             title=auxiliar.get(i).getTitle();
             created_date= auxiliar.get(i).getCreated_date();
             generallist.add(new New_class(auxiliar.get(i).get_id(),title,body,game,coverImage,desc,created_date,auxiliar.get(i).get__v()));
+            gameimageslist.add(new Image_class(coverImage));
             }
 
         }

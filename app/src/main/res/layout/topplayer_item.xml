@@ -4,12 +4,14 @@
     android:layout_height="wrap_content"
     android:layout_margin="2dp"
     android:id="@+id/fragmenttopplayerid"
+    android:background="#263238"
     >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:background="#263238"
         >
 
     <ImageView
@@ -17,6 +19,7 @@
         android:layout_height="70dp"
         android:src="@drawable/gameicon2"
         android:id="@+id/top_player_image"
+        android:scaleType="centerCrop"
         />
 
         <LinearLayout
@@ -29,7 +32,7 @@
              android:id="@+id/item_game_topplayer_name"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
-             android:textColor="#000000"
+             android:textColor="#FFFFFF"
              android:text="Playername"
              />
 
