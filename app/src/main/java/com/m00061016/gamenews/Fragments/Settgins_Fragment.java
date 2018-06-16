@@ -31,19 +31,6 @@ public class Settgins_Fragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        logout = (Button) view.findViewById(R.id.sign_out_button);
-
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent;
-
-                intent = new Intent(getContext(), LoginActivity.class);
-
-                startActivity(intent);
-
-            }
-        });
 
     }
 }

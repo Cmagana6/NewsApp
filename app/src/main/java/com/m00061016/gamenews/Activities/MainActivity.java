@@ -1,5 +1,6 @@
 package com.m00061016.gamenews.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 
 import com.m00061016.gamenews.Fragments.Favorites_Fragment;
@@ -45,7 +47,7 @@ public class MainActivity extends AppCompatActivity
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
+            drawer.closeDrawers();
         } else {
             super.onBackPressed();
         }
@@ -94,6 +96,10 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_settings) {
             changeFragment(new Settgins_Fragment());
+        } else if (id == R.id.nav_cerrar_sesion){
+            Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+            startActivity(intent);
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -112,5 +118,15 @@ public class MainActivity extends AppCompatActivity
         }
 
     }
+
+    /*
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_BACK){
+            moveTaskToBack(false);
+            return false;
+        }
+        return super.onKeyDown(keyCode,event);
+    }*/
 
 }

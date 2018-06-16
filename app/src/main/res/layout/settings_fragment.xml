@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/apisettingsfilled"
+        android:src="@drawable/gameicon2"
         />
 
     <EditText
@@ -39,17 +39,6 @@
         android:textColor="#FFFFFF"
         android:text="Change"
         android:layout_gravity="center_horizontal"
-        android:background="#000000"
-        />
-
-    <Button
-        android:layout_marginTop="50dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:textColor="#FFFFFF"
-        android:text="Sign out"
-        android:id="@+id/sign_out_button"
         android:background="#000000"
         />
 

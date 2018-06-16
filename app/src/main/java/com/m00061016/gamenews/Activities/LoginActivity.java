@@ -1,10 +1,13 @@
 package com.m00061016.gamenews.Activities;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,7 +23,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
-
+    private Dialog warning;
     private EditText username;
     private EditText password;
     private Button signin;
@@ -35,9 +38,14 @@ public class LoginActivity extends AppCompatActivity {
         this.username=(EditText) findViewById(R.id.id_username);
         this.password=(EditText) findViewById(R.id.id_password);
         this.signin=(Button) findViewById(R.id.signig_button);
-
         this.service = RetrofitService.getRetrofitInstance().create(UserInterface.class);
 
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,23 +54,22 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<LoginAuth> call, Response<LoginAuth> response) {
 
-                        if(response.code()== 401){
-                            final Dialog warning = new Dialog(getApplicationContext());
-                            warning.setContentView(R.layout.warning_dialog);
-                            warning.show();
-
-                            warning.findViewById(R.id.btn_warning_dialog).setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    warning.dismiss();
-                                }
-                            });
-
-                        }else if(response.body().getToken() !=null && response.code()!=401){
+                        if(response.code()!=401){
                             Tokenglobal = response.body().getToken().toString();
                             Intent intent;
                             intent=new Intent(LoginActivity.this,MainActivity.class);
                             startActivity(intent);
+                            finish();
+                        }else{
+                            EditText username,pass;
+                            username = (EditText) findViewById(R.id.id_username);
+                            pass=(EditText)findViewById(R.id.id_password);
+                            username.setText("");
+                            pass.setText("");
+                            username.setHint("Credenciales incorrectas");
+                            pass.setHint("Intentalo denuevo");
+                            pass.setHintTextColor(Color.RED);
+                            username.setHintTextColor(Color.RED);
                         }
                     }
 
@@ -73,5 +80,14 @@ public class LoginActivity extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+            if(keyCode == KeyEvent.KEYCODE_BACK){
+                moveTaskToBack(true);
+                return true;
+            }
+        return super.onKeyDown(keyCode,event);
     }
 }
